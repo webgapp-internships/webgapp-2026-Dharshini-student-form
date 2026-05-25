@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>registration</title>
+    </head>
+    <body>
+        <h1><center>REGISTRATION FORM</center></h1>
+        <style>
+            form{
+                width:500px;
+                margin:auto;
+                border:2px solid whitesmoke;
+                box-shadow:0 0 20px cyan;
+                padding:30px;
+                }
+            label{
+                display:inline-block;
+                width:100px;
+            }
+            </style>
+        <form action="sub.html" method="post">
+        <label>Name:</label>
+        <input type="text" name="username"><br><br>
+        <label>DOB:</label>
+        <input type="date" name="Date of Birth"><br><br>
+        <label>Register Number:</label>
+        <input type="text" name="reg"><br><br>
+        <label>Father's Name:</label>
+        <input type="text" name="Father's Name"><br><br>
+        <label>Address:</label>
+        <textarea rows="4" cols="30" name="Address"></textarea><br><br>
+        <label>Mobile Number:</label>
+        <input type="text" name="Mobile number"><br><br>
+        <label>Email ID:</label>
+        <input type="email" name="EmailID"><br><br>
+        <label>Password:</label>
+        <input type="password" name="password"><br><br>
+        <label>Gender:</label>
+        <input type="radio" name="Male">Male
+        <input type="radio" name="Female">Female<br><br>
+        <label>Course:</label>
+        <select>
+            <option>Bsc(CS)</option>
+            <option>Bsc(IT)</option>
+            <option>BCA</option>
+            <option>B.Com</option>
+            <option>B.Com(CA)</option>
+            <option>BA(Tamil)</option>
+            <option>BA(English)</option>
+            <option>Bsc(Maths)</option>
+        </select><br><br>
+        <center><button>Submit</button></center>
+    </form>
+    </body>
+</html>
