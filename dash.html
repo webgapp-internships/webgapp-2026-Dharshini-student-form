@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <style>
+        header{
+            color: black;
+            padding:20px;
+            text-shadow: 3px 3px 7px cadetblue;
+        }
+        button{
+            padding: 15px;
+            float: right;
+            border:none;
+            border-radius:8px;
+            background:rgb(55, 58, 55);
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+        .container{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .box{
+        width:300px;
+        height:120px;
+        color:white;
+        padding-top: 20px;
+        border-radius:20px;
+        text-align:center;
+        box-shadow:0 0 5px gray;
+        }   
+        .box1{
+            background:rgb(139, 83, 83);
+            justify-content: space-between;
+        }    
+        .box2{
+            background: rgb(182, 151, 111);
+        }
+        .box3{
+            background: rgb(121, 148, 68);
+        }
+        .box4{
+            background: rgb(141, 115, 65);
+        }
+        .box5{
+            background: rgb(202, 173, 202);
+            width: 620px;
+        }
+        .box6{
+            background: rgb(75, 75, 102);
+            width: 620px;
+        }
+        .box7{
+            width:600px;
+            height:230px;
+            background-color:white;
+            text-align: center;
+            line-height: 35px;
+            font-size: 20px;
+            box-shadow: 0 0 5px rgb(129, 76, 76);
+        }
+        .box8{
+            width: 600px;
+            height: 230px;
+            background-color: white;
+            text-align: center;
+            line-height: 35px;
+            font-size: 20px;
+        }
+        .title{
+            border-bottom:2px solid black;
+            width:250px;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h2>EMPLOYEE ATTENDANCE DASHBOARD
+            <button>
+                <i class="fa-solid fa-download" ></i> Export Report</button></h2>
+        </header>
+        <div class="container">
+        <div class="box box1">
+            <h2>Total Employees
+            <i class="fa-solid fa-users" style="font-size: 20px; color: black;"></i>
+            </h2>
+            <p>270</p>
+        </div>
+        <div class="box box2">
+            <h2>Present today
+            <i class="fa-solid fa-circle-check" style="color: rgb(68, 226, 68);"></i>
+            </h2>
+            <p>170</p>
+        </div>
+        <div class="box box3">
+            <h2>Absent Today
+            <i class="fa-solid fa-circle-xmark" style="color: red;"></i>
+            </h2>
+            <p>100</p>
+        </div>
+        <div class="box box4">
+            <h2>Active Projects
+            <i class="fa-solid fa-table-columns" style="color: black;"></i>
+            </h2>
+            <b>17</b>
+        </div>
+        </div><br><br>
+        <div class="container">
+            <div class="box box5">
+                <h2>Violation's Today <i class="fa-solid fa-triangle-exclamation" style="color: black;"></i>
+                </h2>
+                <b>20</b>
+            </div>
+            <div class="box box6">
+                <h2>Task Due Date <i class="fa-solid fa-list-check" style="color: black;"></i>
+                </h2>
+                <b>32</b>
+            </div>
+        </div><br><br>
+        <div class="container">
+            <div class="box box7" style="color: black;">
+                <h2><i class="fa-solid fa-clock"></i> Recent Checked Ins:</h2>
+                <b>Gayathri</b> Checked in at <u>09.00 A.M</u><br>
+                <b>Gopika</b>  checked in at <u>09.10 A.M</u><br>
+                <b>Dhanam</b> checked in at <u>09.05 A.M</u><br>
+            </div>
+            <div class="box box8">
+                <h2 style="color:red;"><i class="fa-solid fa-bell"></i> Violation Alerts</h2>
+                <p style="color: black;">
+                <b>Radha</b> Late checked-in.<br>
+                <b>Varshini</b> go fence violation.<br>
+                <b>Hema</b> missing check-out.<br></p>
+            </div>
+        </div>
+    </body>
+</html>
