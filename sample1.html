@@ -52,23 +52,59 @@
         }
         .popup{
             display:none;
-            position: fixed;
+            position:fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width:70%;
             background:white;
-            width:auto;
             padding:20px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px lightgray;
+            border-radius:10px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.3);
         }
+
         #dept:target{
+            display:block;
+        }
+        #std:target{
+            display: block;
+        }
+        #per:target{
+            display: block;
+        }
+        #fac:target{
+            display: block;
+        }
+        #tp:target{
             display: block;
         }
         .close{
-            position:absolute;
-            top:10px;
-            right:10px;
+            float:right;
             text-decoration:none;
-            color:rgb(161, 122, 122);
-            font-size:20px;
+            font-size:25px;
+            color:red;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        th{
+            background:#1e3a8a;
+            color:white;
+            padding:10px;
+        }
+
+        td{
+            border:1px solid #ddd;
+            padding:10px;
+            text-align:center;
+        }
+
+        tr:hover{
+            background:#f5f5f5;
         }
     </style>
     </head>
@@ -91,8 +127,7 @@
             </div></a>
             <div class="popup" id="dept">
             <a href="#" class="close">✖</a>
-            <table border="1" cellpadding="10">
-                <tr>
+            <table>
                 <th>SNO</th>
                 <th>DEPARTMENTS</th>
                 </tr>
@@ -106,23 +141,238 @@
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>BCA</td>
+                    <td>Mechanical Engineering</td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>B.A English</td>
+                    <td>Civil Engineering</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td> ECE</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Chemical Engineering</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>EEE</td>
                 </tr>
             </table>
             </div>
-            <a href="student.html" style="text-decoration: none;">
+
+            <a href="#std" style="text-decoration: none;">
             <div class="box">
                 <i class="fa-solid fa-user-graduate"></i>
                 <p class="text">STUDENTS</p>
             </div></a>
+            <div class="popup" id="std">
+                <a href="#" class="close">✖</a>
+                <table>
+                <tr>
+                    <th>SNO</th>
+                    <th>DEPARTMENT</th>
+                    <th>STUDENTS</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Computer Science</td>
+                    <td>270</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Information Technology</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ECE</td>
+                    <td>300</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>EEE</td>
+                    <td>170</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Chemical Engineering</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Civil Engineering</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Mechanical Engineering</td>
+                    <td>300</td>
+                </tr>
+                </table>
+            </div>
+            
+            <a href="#per" style="text-decoration: none;">
             <div class="box">
                 <i class="fa-solid fa-percent"></i>
                 <p class="text">PERCENTAGE</p>
-            </div>
+            </div></a>
+            <div class="popup" id="per">
+                <a href="#" class="close">✖</a>
+                <table>
+                    <tr>
+                        <th>SNO</th>
+                        <th>NAME</th>
+                        <th>DEPARTMENT</th>
+                        <TH>PERCENTAGE</TH>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Kovi</td>
+                        <td>ECE</td>
+                        <td>85.6</td>
+                    </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>Dhano</td>
+                        <td>EEE</td>
+                        <td>80.6</td>
+                    </tr>
+                     <tr>
+                        <td>3</td>
+                        <td>Gayathri</td>
+                        <td>Information Technology</td>
+                        <td>80.2</td>
+                    </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>Radha</td>
+                        <td>Chemical Engineering</td>
+                        <td>75.9</td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>Hema</td>
+                        <td>Computer Science</td>
+                        <td>70.6</td>
+                    </tr>
+                     <tr>
+                        <td>6</td>
+                        <td>Mercy</td>
+                        <td>Civil Engineering</td>
+                        <td>90.3</td>
+                    </tr>
+                     <tr>
+                        <td>7</td>
+                        <td>Varshini</td>
+                        <td>Mechanical Engineering</td>
+                        <td>83.6</td>
+                    </tr>
+                </table>
         </div>
+        </div><br><br>
+        <div class="container">
+            <a href="#fac" style="text-decoration: none;">
+            <div class="box">
+                <i class="fas fa-user-tie"></i>
+                <p class="text">FACULTY</p>
+            </div></a>
+            <div class="popup" id="fac">
+            <a href="#" class="close">✖</a>
+            <table>
+                <tr>
+                    <th>SNO</th>
+                    <th>DEPARTMENT</th>
+                    <TH>FACULTY</TH>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Computer Science</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ECE</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Civil Engineering</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Mechanical Engineering</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>EEE</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Chemical Engineering</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Information Technology</td>
+                    <td>20</td>
+                </tr>
+            </table>
+            </div>
+            <a href="#tp" style="text-decoration: none;">
+            <div class="box">
+                <i class="fas fa-user-check"></i> 
+                <p class="text">STUDENT'S PRESENT TODAY</p>
+                </div></a>
+                <div class="popup" id="tp">
+                <a href="#" class="close">✖</a>
+                <table>
+                    <tr>
+                        <th>SNO</th>
+                        <th>DEPARTMENT</th>
+                        <TH>PRESENT TODAY</TH>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Computer Science</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>EEE</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Civil Engineering</td>
+                        <td>110</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Information Technology</td>
+                        <td>111</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>ECE</td>
+                        <td>90</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Mechanical Engineering</td>
+                        <td>110</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Chemical Engineering</td>
+                        <td>150</td>
+                    </tr>
+                </table>
+                </div>
+         </div>
     </body>
 </html>
