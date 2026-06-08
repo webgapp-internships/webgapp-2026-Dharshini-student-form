@@ -3,13 +3,15 @@
 <head>
     <title>home</title>
     <style>
-        header{
-            display: flex;
-            align-items: center;
-            background:#959ca3;
+       header{
+            background:linear-gradient(90deg,#99addb,#0f0f0f);
             color:white;
-            padding: 20px;
-            gap: 100px;
+            padding:25px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:25px;
+            box-shadow:0 5px 20px rgba(0,0,0,0.3);
         }
         .h1{
             color: black;
@@ -19,36 +21,111 @@
             display: flex;
             justify-content: center;
         }
-        .course-box{
-            align-items: center;
-            width: 300px;
-            height: 250px;
-            background-color: rgb(146, 65, 69);
-            padding: 20px;
-            border-radius: 10px;
-            font-weight: bold;
-            box-shadow: 0px 0px 10px gray;
+        .facility-container{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+            margin:30px;
+        }
+
+        .facility-box{
+            width:220px;
+            padding:20px;
+            text-align:center;
+            background:white;
+            border:1px solid gray;
+            border-radius:10px;
+            box-shadow:0px 0px 10px lightgray;
+        }
+
+        .facility-box h3{
+            color:#050505;
+        }
+        footer{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #0f172a, #1e3c72);
+            color: white;
+            padding: 50px 8%;
+            margin-top: 60px;
+            gap: 30px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+
+        .footer-box{
+            width:30%;
         }
         </style>
 </head>
-<body background="1.jpg">
+<body>
     <div class="header-container">
     <header>
-    <img src="SKC.PNG" width="100px" height="100px">
+    <img src="2.jpg" width="100px" height="100px">
     <center>
-    <h1>SRI KALISWARI COLLEGE</h1></center></header>
+    <h1>GALAXY INSTITUTE</h1>
+     <p>Approved by AICTE | Affiliated to Core University</p></center></header>
     </div><br><br>
-    <div class="container">
-    <div class="course-box">
-        <h2>FACILITIES</h2>
-        📚  Library<BR>
-        💻  Computer Lab<br>
-        🧪  Science Lab<br>
-        ⚽  Sports<br>
-        🚌  Transport<br>
-        🍴  Canteen<br>
-        🛏️  Hostel<br>
+    <h1 class="facility-title">🏫 Our Facilities</h1>
+
+<div class="facility-container">
+
+    <div class="facility-box">
+        <h3>📚 Digital Library</h3>
+        <p>Thousands of books, journals and e-resources.</p>
     </div>
+
+    <div class="facility-box">
+        <h3>💻 Computer Lab</h3>
+        <p>Modern systems with high-speed internet.</p>
     </div>
+
+    <div class="facility-box">
+        <h3>🧪 Science Lab</h3>
+        <p>Well-equipped laboratories for practical learning.</p>
+    </div>
+
+    <div class="facility-box">
+        <h3>🏀 Sports Complex</h3>
+        <p>Indoor and outdoor sports facilities.</p>
+    </div>
+
+    <div class="facility-box">
+        <h3>🚌 Transport</h3>
+        <p>Safe and convenient transportation services.</p>
+    </div>
+
+    <div class="facility-box">
+        <h3>📶 Wi-Fi Campus</h3>
+        <p>Campus-wide internet connectivity.</p>
+    </div>
+
+</div>
+    <footer>
+<div class="footer-box">  
+<p style="font-size: 15px;">
+    <h2>Contact Details</h2>
+            📍 Kodaikanal, Tamil Nadu <br>
+            📞 +91 9876543210 <br>
+            📧 galaxyinstitute@edu.com
+        </p>
+        </div>
+        <div class="footer-box">
+            <H2>RESOURSES</H2>
+            Diplomo Courses<BR>
+            Job Opportunities<br>
+            Health & Safety
+        </div>
+        <div class="footer-box">
+            <h2>SPORTS</h2>
+            Basket Ball<br>
+            Volley Ball<br>
+            Athletics<br>
+            Cricket<br``>
+        </div>
+    </section>
+</footer> 
+ 
 </body>
 </html>
