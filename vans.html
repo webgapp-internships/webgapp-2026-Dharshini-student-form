@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Available Vans</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+}
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#003366;
+    padding:15px 60px;
+}
+
+nav h2{
+    color:white;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+nav ul li a:hover{
+    color:orange;
+}
+
+/* Banner */
+
+.van-banner{
+height:50vh;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+text-align:center;
+}
+
+.van-banner h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.van-banner p{
+font-size:20px;
+}
+
+/* Search */
+
+.search-box{
+text-align:center;
+margin:40px 0;
+}
+
+.search-box input{
+width:350px;
+padding:14px;
+font-size:16px;
+border:2px solid #003366;
+border-radius:30px;
+outline:none;
+}
+
+/* Cards */
+
+.card-container{
+width:90%;
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+padding-bottom:50px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.card h3{
+color:#003366;
+margin-bottom:15px;
+}
+
+.features{
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+font-size:15px;
+color:#555;
+}
+
+.features span{
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.price{
+font-size:24px;
+font-weight:bold;
+color:#e67e22;
+margin:15px 0;
+}
+
+.rating{
+color:gold;
+margin-bottom:15px;
+}
+
+button{
+width:100%;
+padding:13px;
+background:#003366;
+color:white;
+border:none;
+border-radius:8px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0055aa;
+}
+
+</style>
+
+</head>
+
+<body>
+    <nav>
+
+<h2>🚐 Van Rental</h2>
+
+<ul>
+<li><a href="start.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+
+<li><a href="vans.html">Vans</a></li>
+
+<li><a href="booking.html">Booking</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+<li><a href="review.html">Review</a></li>
+
+</ul>
+
+</nav>
+
+<section class="van-banner">
+
+<h1>Choose Your Perfect Van</h1>
+
+<p>Comfortable • Spacious • Affordable</p>
+
+</section>
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search Vans..."
+onkeyup="searchVan()">
+
+</div>
+
+<div class="card-container">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1519642918688-7e43b19245d8?w=700">
+
+<div class="card-content">
+
+<h3>Mini Van</h3>
+
+<div class="features">
+
+<span><i class="fas fa-users"></i> 8 Seats</span>
+
+<span><i class="fas fa-suitcase"></i> 5 Bags</span>
+
+</div>
+
+<div class="features">
+
+<span><i class="fas fa-snowflake"></i> AC</span>
+
+<span><i class="fas fa-gas-pump"></i> Diesel</span>
+
+</div>
+
+<div class="rating">
+
+★★★★★
+
+</div>
+
+<div class="price">
+
+₹1500 / Day
+
+</div>
+
+<button onclick="location.href='booking.html'">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700">
+
+<div class="card-content">
+
+<h3>Family Van</h3>
+
+<div class="features">
+
+<span><i class="fas fa-users"></i> 12 Seats</span>
+
+<span><i class="fas fa-suitcase"></i> 8 Bags</span>
+
+</div>
+
+<div class="features">
+
+<span><i class="fas fa-snowflake"></i> AC</span>
+
+<span><i class="fas fa-map"></i> GPS</span>
+
+</div>
+
+<div class="rating">
+
+★★★★★
+
+</div>
+
+<div class="price">
+
+₹2500 / Day
+
+</div>
+
+<button onclick="location.href='booking.html'">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700">
+
+<div class="card-content">
+
+<h3>Luxury Van</h3>
+
+<div class="features">
+
+<span><i class="fas fa-users"></i> 15 Seats</span>
+
+<span><i class="fas fa-tv"></i> LED TV</span>
+
+</div>
+
+<div class="features">
+
+<span><i class="fas fa-wifi"></i> Wi-Fi</span>
+
+<span><i class="fas fa-couch"></i> Luxury Seats</span>
+
+</div>
+
+<div class="rating">
+
+★★★★★
+
+</div>
+
+<div class="price">
+
+₹3500 / Day
+
+</div>
+
+<button onclick="location.href='booking.html'">
+
+Book Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function searchVan(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+let title=card.querySelector("h3").innerText.toLowerCase();
+
+card.style.display=title.includes(input)?"block":"none";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

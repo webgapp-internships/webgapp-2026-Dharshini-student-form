@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Stay Hotel - Internship Project</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f8f9fa;
+}
+
+.navbar{
+background:linear-gradient(90deg,#0f172a,#1e293b)!important;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-brand{
+font-size:1.5rem;
+font-weight:bold;
+}
+
+.nav-link{
+color:white !important;
+margin-left:10px;
+}
+
+.nav-link:hover{
+color:#fbbf24 !important;
+}
+
+.hero{
+background:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600') center/cover;
+height:85vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.overlay{
+background:rgba(0,0,0,0.65);
+padding:40px;
+border-radius:15px;
+}
+
+.overlay h1{
+font-size:4rem;
+font-weight:bold;
+}
+
+.overlay p{
+font-size:1.3rem;
+}
+
+.page{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+.card{
+border:none;
+border-radius:15px;
+overflow:hidden;
+transition:0.4s;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.room-card img,
+.gallery img{
+height:250px;
+object-fit:cover;
+}
+
+.gallery img{
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+h2{
+font-weight:bold;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.form-control,
+.form-select{
+padding:12px;
+border-radius:10px;
+}
+
+.btn-primary,
+.btn-success{
+border-radius:10px;
+padding:10px 25px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+padding:25px;
+text-align:center;
+margin-top:40px;
+}
+
+.table{
+background:white;
+}
+
+.stats{
+background:#0f172a;
+color:white;
+padding:50px 0;
+}
+
+.stat-box h2{
+font-size:2.5rem;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+<a class="navbar-brand" href="#">🏨 Royal Stay Hotel</a>
+<div class="navbar-nav ms-auto">
+<a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+<a class="nav-link" href="#" onclick="showPage('rooms')">Rooms</a>
+<a class="nav-link" href="#" onclick="showPage('gallery')">Gallery</a>
+<a class="nav-link" href="#" onclick="showPage('booking')">Booking</a>
+<a class="nav-link" href="#" onclick="showPage('feedback')">Feedback</a>
+<a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+</div>
+</div>
+</nav>
+
+<div id="home" class="page active">
+<section class="hero"><div class="overlay"><h1>Royal Stay Hotel</h1></div></section>
+<div class="container py-4">
+<h2>About Hotel</h2>
+</div>
+</div>
+
+<div id="rooms" class="page container py-4">
+<h2>Rooms</h2>
+<input class="form-control mb-3" id="searchRoom" onkeyup="filterRooms()" placeholder="Search room">
+<div class="row" id="roomList">
+<div class="col-md-4 room-card"><div class="card"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800"><div class="card-body"><h5>Standard Room</h5><p>₹1500/Night</p></div></div></div>
+<div class="col-md-4 room-card"><div class="card"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800"><div class="card-body"><h5>Deluxe Room</h5><p>₹2500/Night</p></div></div></div>
+<div class="col-md-4 room-card"><div class="card"><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800"><div class="card-body"><h5>Suite Room</h5><p>₹4000/Night</p></div></div></div>
+</div>
+</div>
+
+<div id="gallery" class="page container py-4">
+<h2>Gallery</h2>
+<div class="row gallery">
+<div class="col-md-4"><img class="img-fluid rounded" src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800"></div>
+<div class="col-md-4"><img class="img-fluid rounded" src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?w=800"></div>
+<div class="col-md-4"><img class="img-fluid rounded" src="https://images.unsplash.com/photo-1455587734955-081b22074882?w=800"></div>
+</div>
+</div>
+
+<div id="booking" class="page container py-4">
+<h2>Book Room</h2>
+<form id="bookingForm">
+<input class="form-control mb-2" id="name" placeholder="Name" required>
+<select class="form-select mb-2" id="room">
+<option value="1500">Standard Room</option>
+<option value="2500">Deluxe Room</option>
+<option value="4000">Suite Room</option>
+</select>
+<input class="form-control mb-2" type="number" id="days" placeholder="Days" required>
+<button class="btn btn-primary">Book Now</button>
+</form>
+<div id="result" class="mt-3"></div>
+</div>
+
+<div id="feedback" class="page container py-4">
+    <h2>Guest Feedback</h2>
+
+<div class="card p-4 shadow">
+    <form id="feedbackForm">
+
+        <input type="text"
+               class="form-control mb-3"
+               id="guestName"
+               placeholder="Enter Your Name"
+               required>
+
+        <input type="email"
+               class="form-control mb-3"
+               id="guestEmail"
+               placeholder="Enter Your Email"
+               required>
+
+        <select class="form-select mb-3" id="rating">
+            <option value="">Select Rating</option>
+            <option>⭐⭐⭐⭐⭐ Excellent</option>
+            <option>⭐⭐⭐⭐ Very Good</option>
+            <option>⭐⭐⭐ Good</option>
+            <option>⭐⭐ Average</option>
+            <option>⭐ Poor</option>
+        </select>
+
+        <textarea class="form-control mb-3"
+                  id="message"
+                  rows="5"
+                  placeholder="Share your experience..."
+                  required></textarea>
+
+        <button type="submit" class="btn btn-success">
+            Submit Feedback
+        </button>
+
+    </form>
+
+    <div id="feedbackResult" class="mt-3"></div>
+</div>
+</div>
+
+
+<div id="contact" class="page container py-4">
+<h2>Contact Us</h2>
+<p>📍 Chennai, Tamil Nadu</p>
+<p>📞 +91 9876543210</p>
+<p>📧 royalstay@gmail.com</p>
+
+<h3>Availability</h3>
+<table class="table table-bordered">
+<tr><th>Room</th><th>Status</th></tr>
+<tr><td>101 Standard</td><td>Available</td></tr>
+<tr><td>201 Deluxe</td><td>Booked</td></tr>
+<tr><td>301 Suite</td><td>Available</td></tr>
+</table>
+</div>
+
+<footer>© 2026 Royal Stay Hotel Internship Project</footer>
+
+<script>
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+document.getElementById('bookingForm').addEventListener('submit',function(e){
+e.preventDefault();
+let n=document.getElementById('name').value;
+let p=parseInt(document.getElementById('room').value);
+let d=parseInt(document.getElementById('days').value);
+document.getElementById('result').innerHTML=`<div class="alert alert-success">Booking Confirmed for ${n}<br>Total Amount: ₹${p*d}</div>`;
+});
+
+function login(){
+let u=document.getElementById('user').value;
+let p=document.getElementById('pass').value;
+document.getElementById('loginMsg').innerHTML=(u && p) ? "Login Successful ✅" : "Enter details";
+}
+
+function filterRooms(){
+let q=document.getElementById('searchRoom').value.toLowerCase();
+document.querySelectorAll('#roomList .room-card').forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+});
+}
+document.getElementById('feedbackForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    let name = document.getElementById('guestName').value;
+
+    document.getElementById('feedbackResult').innerHTML =
+    `<div class="alert alert-success">
+        Thank you, <strong>${name}</strong>! 🎉
+        <br>Your feedback has been submitted successfully.
+    </div>`;
+
+    this.reset();
+});
+
+</script>
+</body>
+</html>

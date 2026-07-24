@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Van</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    padding-top:80px;
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#003366;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    box-sizing:border-box;
+    z-index:1000;
+}
+
+nav h2{
+    color:white;
+    margin:0;
+    font-size:28px;
+}
+
+nav ul{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    margin:0;
+    padding:0;
+    gap:25px;
+}
+
+nav ul li{
+    margin:0;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:orange;
+}
+.booking-banner{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:120px 20px 80px;
+}
+
+.booking-banner h1{
+    font-size:45px;
+}
+
+.booking-banner p{
+    font-size:20px;
+}
+
+.booking-container{
+    width:90%;
+    max-width:700px;
+    margin:50px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.booking-container h2{
+    text-align:center;
+    color:#003366;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+#result{
+    margin-top:30px;
+    padding:20px;
+    background:#eaf8ea;
+    border-left:5px solid green;
+    border-radius:8px;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+ <nav>
+
+<h2>🚐 Van Rental</h2>
+
+<ul>
+<li><a href="start.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+
+<li><a href="vans.html">Vans</a></li>
+
+<li><a href="booking.html">Booking</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="review.html">Review</a></li>
+
+</ul>
+
+</nav>
+
+<section class="booking-banner">
+
+<h1>Book Your Van</h1>
+
+<p>Fast • Secure • Affordable Booking</p>
+
+</section>
+
+<div class="booking-container">
+
+<h2><i class="fas fa-calendar-check"></i> Booking Form</h2>
+
+<form id="bookingForm">
+
+<div class="input-group">
+<label>Customer Name</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="input-group">
+<label>Mobile Number</label>
+<input type="tel" id="mobile" required>
+</div>
+
+<div class="input-group">
+<label>Pickup Location</label>
+<input type="text" id="pickup" required>
+</div>
+
+<div class="input-group">
+<label>Destination</label>
+<input type="text" id="destination" required>
+</div>
+
+<div class="input-group">
+<label>Journey Date</label>
+<input type="date" id="date" required>
+</div>
+
+<div class="input-group">
+<label>Rental Days</label>
+<input type="number" id="days" min="1" required>
+</div>
+
+<div class="input-group">
+<label>Select Van</label>
+
+<select id="van">
+
+<option value="1500">Mini Van - ₹1500 / Day</option>
+
+<option value="2500">Family Van - ₹2500 / Day</option>
+
+<option value="3500">Luxury Van - ₹3500 / Day</option>
+
+</select>
+
+</div>
+
+<button type="submit">
+<i class="fas fa-check-circle"></i>
+Confirm Booking
+</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let pickup=document.getElementById("pickup").value;
+let destination=document.getElementById("destination").value;
+let date=document.getElementById("date").value;
+let days=Number(document.getElementById("days").value);
+let price=Number(document.getElementById("van").value);
+
+let total=days*price;
+
+document.getElementById("result").innerHTML=`
+
+<h3 style="color:green;">✅ Booking Confirmed</h3>
+
+<p><b>Customer:</b> ${name}</p>
+
+<p><b>Mobile:</b> ${mobile}</p>
+
+<p><b>Pickup:</b> ${pickup}</p>
+
+<p><b>Destination:</b> ${destination}</p>
+
+<p><b>Journey Date:</b> ${date}</p>
+
+<p><b>Rental Days:</b> ${days}</p>
+
+<p><b>Total Amount:</b> ₹${total}</p>
+
+<h3 style="color:#003366;">
+Thank you for choosing Van Rental System!
+</h3>
+
+`;
+
+});
+
+</script>
+<footer style="background:#003366;color:white;text-align:center;padding:20px;">
+<h3>Van Rental System</h3>
+<p>Affordable • Comfortable • Safe Journey</p>
+<p>© 2026 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

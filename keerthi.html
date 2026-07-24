@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    overflow-x:hidden;
+}
+
+/* Header */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#003366;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:10px 18px;
+    transition:.3s;
+}
+
+nav button:hover{
+    background:#ff9800;
+    border-radius:5px;
+}
+
+/* Pages */
+
+.page{
+    min-height:100vh;
+    padding:100px 40px 80px;
+    text-align:center;
+}
+.page h1{
+    font-size:45px;
+    color:#003366;
+    margin-bottom:15px;
+}
+
+.page p{
+    width:70%;
+    font-size:18px;
+    color:#555;
+}
+
+/* Footer */
+
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:55px;
+    background:#003366;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:16px;
+    font-weight:bold;
+    z-index:1000;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.3);
+}
+
+footer p{
+    margin:0;
+}
+/* Home Section */
+
+.home{
+    background:#f8f9fa;
+}
+
+.home-content{
+    width:90%;
+    max-width:1200px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.text{
+    flex:1;
+}
+
+.text h1{
+    font-size:50px;
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.text p{
+    width:100%;
+    font-size:18px;
+    line-height:30px;
+    color:#555;
+    margin-bottom:30px;
+}
+
+.book-btn{
+    padding:15px 35px;
+    border:none;
+    background:#ff9800;
+    color:white;
+    font-size:18px;
+    border-radius:5px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.book-btn:hover{
+    background:#e68900;
+}
+
+.image{
+    flex:1;
+    text-align:center;
+}
+
+.image img{
+    width:100%;
+    max-width:550px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+/* ===== ABOUT HERO ===== */
+
+.about-hero{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1600");
+    background-size:cover;
+    background-position:center;
+    border-radius:15px;
+    padding:100px 20px;
+    color:white;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.about-hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.about-hero p{
+    font-size:20px;
+    width:100%;
+    color:white;
+}
+
+.about-content{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+.about-text{
+    width:90%;
+    max-width:900px;
+    margin:0 auto 50px;
+    text-align:center;
+}
+
+.about-text h2{
+    font-size:38px;
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    width:100%;
+    font-size:18px;
+    line-height:30px;
+    color:#555;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card i{
+    font-size:45px;
+    color:#ff9800;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.card p{
+    width:100%;
+    color:#555;
+    line-height:28px;
+}
+/*============== VANS PAGE ==============*/
+
+.van-heading{
+    width:100%;
+    text-align:center;
+    margin-bottom:35px;
+    color:#666;
+}
+
+.van-container{
+    width:95%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:30px;
+}
+
+.van-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.van-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.van-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.van-details{
+    padding:20px;
+}
+
+.van-details h2{
+    color:#003366;
+    margin-bottom:18px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.features span{
+    color:#555;
+    font-size:17px;
+}
+
+.features i{
+    color:#555;
+    margin-right:6px;
+}
+
+.stars{
+    color:gold;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.van-details h3{
+    color:#ff7b00;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.van-details button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#003366;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.van-details button:hover{
+    background:#ff9800;
+}
+
+@media(max-width:768px){
+
+.van-container{
+    grid-template-columns:1fr;
+}
+
+.features{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+.booking-form{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.row{
+    display:flex;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.input-group{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.input-group label{
+    font-weight:bold;
+    color:#003366;
+    margin-bottom:8px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    border-color:#003366;
+    box-shadow:0 0 8px rgba(0,51,102,.2);
+}
+
+textarea{
+    resize:none;
+}
+
+.confirm-btn{
+    width:100%;
+    padding:15px;
+    background:#ff9800;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.confirm-btn:hover{
+    background:#e68900;
+}
+
+#bookingDetails{
+    width:90%;
+    max-width:900px;
+    margin:30px auto;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.row{
+    flex-direction:column;
+}
+
+.booking-form{
+    padding:25px;
+}
+
+}
+/* ================= REVIEW PAGE ================= */
+
+.review-container{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.review-card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.review-card:hover{
+    transform:translateY(-8px);
+}
+
+.review-card h3{
+    color:#ff9800;
+    margin-bottom:10px;
+}
+
+.review-card h4{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+.review-card p{
+    width:100%;
+    line-height:28px;
+    color:#555;
+}
+
+.review-form{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.review-form h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.review-form textarea{
+    resize:none;
+}
+
+.review-form button{
+    width:100%;
+    padding:15px;
+    background:#ff9800;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.review-form button:hover{
+    background:#e68900;
+}
+/*================ CONTACT PAGE ================*/
+
+.contact-subtitle{
+    width:100%;
+    margin-bottom:40px;
+}
+
+.contact-container{
+    width:95%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:35px;
+}
+
+.contact-info{
+    background:#003366;
+    color:white;
+    padding:35px;
+    border-radius:15px;
+}
+
+.contact-info h2{
+    margin-bottom:30px;
+}
+
+.info-box{
+    display:flex;
+    gap:20px;
+    margin-bottom:30px;
+    align-items:flex-start;
+}
+
+.info-box i{
+    font-size:30px;
+    color:#ff9800;
+}
+
+.info-box h4{
+    margin-bottom:8px;
+}
+
+.info-box p{
+    width:100%;
+    color:white;
+    line-height:28px;
+}
+
+.contact-form{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.contact-form h2{
+    color:#003366;
+    margin-bottom:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.contact-form textarea{
+    resize:none;
+}
+
+.contact-form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#ff9800;
+    color:white;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.contact-form button:hover{
+    background:#e68900;
+}
+
+#contactResult{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+}
+
+@media(max-width:768px){
+
+.contact-container{
+    grid-template-columns:1fr;
+}
+
+}
+</style>
+</head>
+<body>
+    <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('vans')">Vans</button>
+    <button onclick="showPage('booking')">Booking</button>
+    <button onclick="showPage('review')">Review</button>
+    <button onclick="showPage('contact')">Contact</button>
+</nav>
+
+<div id="home" class="page home">
+
+    <div class="home-content">
+
+        <div class="text">
+            <h1>Van Rental System</h1>
+
+            <p>
+                Travel comfortably with our reliable and affordable van rental
+                services. Book your van easily for family trips, tours,
+                airport transfers and business travel.
+            </p>
+
+            <button class="book-btn" onclick="showPage('booking')">
+                Book Now
+            </button>
+        </div>
+
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700" alt="Van">
+        </div>
+
+    </div>
+
+</div>
+
+<div id="about" class="page" style="display:none;">
+
+<section class="about-hero">
+
+    <h1>About Our Van Rental</h1>
+    <p></p>Your Trusted Partner for Comfortable & Safe Travel</p><br>
+
+</section>
+
+<section class="about-content">
+
+<div class="about-text">
+
+<h2>Who We Are</h2>
+
+<p>
+Our Van Rental System provides affordable, safe, and reliable transportation
+services for families, tourists, corporate employees, and special events.
+Our fleet is regularly maintained to ensure a smooth and comfortable journey.
+Whether you need a van for a one-day trip or a long vacation, we are committed
+to delivering excellent service with experienced drivers and competitive pricing.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-shield-alt"></i>
+<h3>Safe Journey</h3>
+<p>All our vans are regularly serviced and inspected to ensure maximum passenger safety.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-wallet"></i>
+<h3>Affordable Pricing</h3>
+<p>Enjoy budget-friendly rental packages without compromising comfort and quality.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-user-tie"></i>
+<h3>Professional Drivers</h3>
+<p>Our experienced drivers provide a safe, comfortable, and hassle-free travel experience.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-headset"></i>
+<h3>24/7 Support</h3>
+<p>Our customer support team is always available to assist you before and during your journey.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-route"></i>
+<h3>Flexible Trips</h3>
+<p>Book vans for local trips, outstation travel, airport pickup, or special occasions.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-star"></i>
+<h3>Customer Satisfaction</h3>
+<p>Thousands of happy customers trust our services for their comfortable and memorable trips.</p>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<div id="vans" class="page" style="display:none;">
+
+    <h1>Available Vans</h1>
+    <p class="van-heading">
+        Choose your preferred van and book your journey easily.
+    </p>
+
+    <div class="van-container">
+
+        <!-- Mini Van -->
+        <div class="van-card">
+
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=700" alt="Mini Van">
+
+            <div class="van-details">
+
+                <h2>Mini Van</h2>
+
+                <div class="features">
+                    <span><i class="fas fa-users"></i> 8 Seats</span>
+                    <span><i class="fas fa-suitcase"></i> 5 Bags</span>
+                    <span><i class="fas fa-snowflake"></i> AC</span>
+                    <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                </div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <h3>₹1500 / Day</h3>
+
+                <button onclick="showPage('booking')">
+                    Book Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Family Van -->
+
+        <div class="van-card">
+
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700" alt="Family Van">
+
+            <div class="van-details">
+
+                <h2>Family Van</h2>
+
+                <div class="features">
+                    <span><i class="fas fa-users"></i> 12 Seats</span>
+                    <span><i class="fas fa-suitcase"></i> 8 Bags</span>
+                    <span><i class="fas fa-snowflake"></i> AC</span>
+                    <span><i class="fas fa-map"></i> GPS</span>
+                </div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <h3>₹2500 / Day</h3>
+
+                <button onclick="showPage('booking')">
+                    Book Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Luxury Van -->
+
+        <div class="van-card">
+
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700" alt="Luxury Van">
+
+            <div class="van-details">
+
+                <h2>Luxury Van</h2>
+
+                <div class="features">
+                    <span><i class="fas fa-users"></i> 15 Seats</span>
+                    <span><i class="fas fa-tv"></i> LED TV</span>
+                    <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                    <span><i class="fas fa-couch"></i> Luxury Seats</span>
+                </div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <h3>₹3500 / Day</h3>
+
+                <button onclick="showPage('booking')">
+                    Book Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="booking" class="page" style="display:none;">
+
+    <h1>Book Your Van</h1>
+
+    <form class="booking-form" onsubmit="return confirmBooking(event)">
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name" required placeholder="Enter your Name">
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your Email ID" required>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="Enter your Mobile Number" required>
+            </div>
+
+            <div class="input-group">
+                <label>Select Van</label>
+
+                <select id="van" required>
+                    <option value="">Choose Van</option>
+                    <option>Mini Van</option>
+                    <option>Family Van</option>
+                    <option>Luxury Van</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>Pickup Location</label>
+                <input type="text" id="pickup" placeholder="Enter your Pickup Location" required>
+            </div>
+
+            <div class="input-group">
+                <label>Drop Location</label>
+                <input type="text" id="drop" placeholder="Enter your Drop Locationn" required>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-group">
+                <label>Pickup Date</label>
+                <input type="date" id="pickupDate" required>
+            </div>
+
+            <div class="input-group">
+                <label>Return Date</label>
+                <input type="date" id="returnDate" required>
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Special Request</label>
+
+            <textarea id="request" rows="4"
+            placeholder="Enter your request"></textarea>
+
+        </div>
+
+        <br>
+
+        <button type="submit" class="confirm-btn">
+            Confirm Booking
+        </button>
+
+    </form>
+
+    <div id="bookingDetails"></div>
+
+</div>
+
+<div id="review" class="page" style="display:none;">
+
+    <h1>Customer Reviews</h1>
+
+    <p style="width:100%;margin-bottom:30px;">
+        See what our customers say about our Van Rental Service.
+    </p>
+
+    <div class="review-container">
+
+        <!-- Existing Review 1 -->
+        <div class="review-card">
+            <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+            <h4>Ramesh Kumar</h4>
+            <p>
+                Excellent service! The van was clean, comfortable,
+                and the driver was very professional.
+            </p>
+        </div>
+
+        <!-- Existing Review 2 -->
+        <div class="review-card">
+            <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+            <h4>Priya Sharma</h4>
+            <p>
+                Affordable pricing and on-time pickup.
+                Highly recommended for family trips.
+            </p>
+        </div>
+
+        <!-- Existing Review 3 -->
+        <div class="review-card">
+            <h3>⭐ ⭐ ⭐ ⭐ ⭐</h3>
+            <h4>Arun Raj</h4>
+            <p>
+                Very smooth booking process.
+                Customer support was available throughout the trip.
+            </p>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <form class="review-form" onsubmit="return addReview(event)">
+
+        <h2>Write Your Review</h2>
+
+        <input
+        type="text"
+        id="reviewName"
+        placeholder="Your Name"
+        required>
+
+        <select id="rating" required>
+            <option value="">Select Rating</option>
+            <option>⭐⭐⭐⭐⭐</option>
+            <option>⭐⭐⭐⭐</option>
+            <option>⭐⭐⭐</option>
+            <option>⭐⭐</option>
+            <option>⭐</option>
+        </select>
+
+        <textarea
+        id="reviewText"
+        rows="5"
+        placeholder="Write your review..."
+        required></textarea>
+
+        <button type="submit">
+            Submit Review
+        </button>
+
+    </form>
+
+</div>
+
+<div id="contact" class="page" style="display:none;">
+
+    <h1>Contact Us</h1>
+
+    <p class="contact-subtitle">
+        We'd love to hear from you. Feel free to contact us anytime.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-info">
+
+            <h2>Get In Touch</h2>
+
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Address</h4>
+                    <p>123, Main Road,<br>Madurai, Tamil Nadu - 625001</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>vanrental@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>Monday - Sunday<br>24 × 7 Available</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+
+        <form class="contact-form" onsubmit="return sendMessage(event)">
+
+            <h2>Send Message</h2>
+
+            <input
+            type="text"
+            id="cname"
+            placeholder="Your Name"
+            required>
+
+            <input
+            type="email"
+            id="cemail"
+            placeholder="Your Email"
+            required>
+
+            <input
+            type="text"
+            id="csubject"
+            placeholder="Subject"
+            required>
+
+            <textarea
+            id="cmessage"
+            rows="6"
+            placeholder="Type your Message..."
+            required></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+    <div id="contactResult"></div>
+
+</div>
+
+<script>
+function showPage(pageId){
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page){
+        page.style.display="none";
+    });
+
+    document.getElementById(pageId).style.display="block";
+}
+
+function confirmBooking(event){
+
+    event.preventDefault();
+
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let mobile=document.getElementById("mobile").value;
+    let van=document.getElementById("van").value;
+    let pickup=document.getElementById("pickup").value;
+    let drop=document.getElementById("drop").value;
+    let pickupDate=document.getElementById("pickupDate").value;
+    let returnDate=document.getElementById("returnDate").value;
+    let request=document.getElementById("request").value;
+
+    document.getElementById("bookingDetails").style.display="block";
+
+    document.getElementById("bookingDetails").innerHTML=`
+
+    <div style="
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    margin-top:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    text-align:left;
+    ">
+
+    <h2 style="color:green;text-align:center;">
+    ✅ Booking Confirmed Successfully
+    </h2>
+
+    <hr><br>
+
+    <p><b>Customer Name :</b> ${name}</p>
+
+    <p><b>Email :</b> ${email}</p>
+
+    <p><b>Mobile :</b> ${mobile}</p>
+
+    <p><b>Van Type :</b> ${van}</p>
+
+    <p><b>Pickup :</b> ${pickup}</p>
+
+    <p><b>Drop :</b> ${drop}</p>
+
+    <p><b>Pickup Date :</b> ${pickupDate}</p>
+
+    <p><b>Return Date :</b> ${returnDate}</p>
+
+    <p><b>Special Request :</b> ${request}</p>
+
+    <br>
+
+    <h3 style="color:#003366;text-align:center;">
+    Thank You for Booking with Van Rental System 🚐
+    </h3>
+
+    </div>
+
+    `;
+
+    document.querySelector(".booking-form").reset();
+
+    return false;
+}
+
+function addReview(event){
+
+    event.preventDefault();
+
+    let name=document.getElementById("reviewName").value;
+    let rating=document.getElementById("rating").value;
+    let review=document.getElementById("reviewText").value;
+
+    let card=document.createElement("div");
+
+    card.className="review-card";
+
+    card.innerHTML=`
+
+        <h3>${rating}</h3>
+
+        <h4>${name}</h4>
+
+        <p>${review}</p>
+
+    `;
+
+    document.querySelector(".review-container").appendChild(card);
+
+    alert("Thank you! Your review has been submitted.");
+
+    document.querySelector(".review-form").reset();
+
+    return false;
+}
+function sendMessage(event){
+
+    event.preventDefault();
+
+    let name=document.getElementById("cname").value;
+    let email=document.getElementById("cemail").value;
+    let subject=document.getElementById("csubject").value;
+    let message=document.getElementById("cmessage").value;
+
+    document.getElementById("contactResult").innerHTML=`
+
+    <div style="
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    text-align:left;
+    ">
+
+    <h2 style="color:green;text-align:center;">
+    ✅ Message Sent Successfully
+    </h2>
+
+    <hr><br>
+
+    <p><b>Name :</b> ${name}</p>
+
+    <p><b>Email :</b> ${email}</p>
+
+    <p><b>Subject :</b> ${subject}</p>
+
+    <p><b>Message :</b> ${message}</p>
+
+    <br>
+
+    <h3 style="text-align:center;color:#003366;">
+    Thank you for contacting Van Rental System.
+    We will reach you soon.
+    </h3>
+
+    </div>
+
+    `;
+
+    document.querySelector(".contact-form").reset();
+
+    return false;
+}
+</script>
+<footer>
+    <p>© 2026 Van Rental System | All Rights Reserved</p>
+</footer>
+</body>
+</html>
