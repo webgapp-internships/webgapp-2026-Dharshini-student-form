@@ -1,11 +1,1517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookNest</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+}
+
+nav{
+background:#1e293b;
+height:70px;
+padding:0 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+width:100%;
+box-shadow:0 4px 15px rgba(0,0,0,.2);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#fbbf24;
+}
+
+.logo span{
+color:white;
+}
+
+.menu{
+display:flex;
+gap:15px;
+}
+
+nav button{
+background:none;
+border:none;
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+padding:10px 18px;
+border-radius:6px;
+transition:.3s;
+}
+
+nav button:hover{
+background:#fbbf24;
+color:#1e293b;
+}
+
+.page{
+display:none;
+padding:100px 40px;
+min-height:100vh;
+}
+
+#home{
+display:block;
+background:#f8fafc;
+text-align:center;
+}
+
+.hero{
+margin-top:60px;
+}
+
+.hero h1{
+font-size:50px;
+color:#1e293b;
+}
+
+.hero p{
+margin:20px auto;
+width:70%;
+font-size:18px;
+line-height:30px;
+color:#555;
+}
+
+.hero button{
+padding:15px 35px;
+background:#f59e0b;
+border:none;
+color:white;
+font-size:18px;
+cursor:pointer;
+border-radius:8px;
+}
+
+.hero button:hover{
+background:#d97706;
+}
+
+.books{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.card h3{
+margin:15px 0;
+color:#1e293b;
+}
+
+.card button{
+margin-top:15px;
+padding:10px 20px;
+background:#1e293b;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+.card button:hover{
+background:#f59e0b;
+}
+.hero{
+width:100%;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+padding:120px 8%;
+}
+
+.hero-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+flex:1;
+color:white;
+}
+
+.hero-text h1{
+font-size:58px;
+margin-bottom:20px;
+line-height:70px;
+}
+
+.hero-text h1 span{
+color:#fbbf24;
+}
+
+.hero-text p{
+font-size:18px;
+line-height:30px;
+margin-bottom:30px;
+color:#ddd;
+}
+
+.hero-buttons button{
+padding:15px 35px;
+font-size:17px;
+border:none;
+cursor:pointer;
+border-radius:8px;
+margin-right:15px;
+font-weight:bold;
+transition:.3s;
+}
+
+.hero-buttons button:first-child{
+background:#fbbf24;
+color:#000;
+}
+
+.hero-buttons button:first-child:hover{
+background:white;
+}
+
+.secondary-btn{
+background:transparent;
+border:2px solid white !important;
+color:white;
+}
+
+.secondary-btn:hover{
+background:white;
+color:#000;
+}
+
+.hero-image{
+flex:1;
+text-align:center;
+}
+
+.hero-image img{
+width:100%;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:80px 8%;
+background:#f8fafc;
+}
+
+.service-card{
+background:white;
+padding:35px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card h2{
+font-size:40px;
+color:#1e3a8a;
+margin-bottom:10px;
+}
+
+.service-card p{
+font-size:18px;
+color:#555;
+}
+.book-header{
+text-align:center;
+margin-bottom:40px;
+}
+
+.book-header h1{
+font-size:45px;
+color:#1e293b;
+}
+
+.book-header p{
+margin:10px;
+color:#666;
+}
+
+#searchBook{
+width:400px;
+max-width:90%;
+padding:14px;
+border-radius:30px;
+border:2px solid #ddd;
+margin-top:20px;
+font-size:16px;
+outline:none;
+}
+
+.book-container{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+
+}
+
+.book-card{
+
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+transition:.4s;
+text-align:center;
+
+}
+
+.book-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.book-card img{
+
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+
+}
+
+.book-card h3{
+
+margin-top:15px;
+color:#1e293b;
+
+}
+
+.book-card p{
+
+margin:8px 0;
+color:#666;
+
+}
+
+.rating{
+
+color:orange;
+margin-bottom:15px;
+
+}
+
+.book-card button{
+
+padding:12px 25px;
+background:#1e293b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+
+}
+
+.book-card button:hover{
+
+background:#f59e0b;
+
+}
+.category-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.category-header h1{
+font-size:45px;
+color:#1e293b;
+}
+
+.category-header p{
+font-size:18px;
+color:#666;
+margin-top:10px;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.category-card{
+background:white;
+padding:35px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.4s;
+}
+
+.category-card:hover{
+transform:translateY(-10px);
+background:#1e293b;
+color:white;
+}
+
+.category-card:hover p,
+.category-card:hover h3{
+color:white;
+}
+
+.icon{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.category-card h3{
+font-size:24px;
+margin-bottom:10px;
+color:#1e293b;
+}
+
+.category-card p{
+color:#666;
+}
+.author-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.author-header h1{
+font-size:45px;
+color:#1e293b;
+}
+
+.author-header p{
+color:#666;
+font-size:18px;
+margin-top:10px;
+}
+
+.author-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.author-card{
+background:#fff;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+transition:.4s;
+}
+
+.author-card:hover{
+transform:translateY(-10px);
+}
+
+.author-card img{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #fbbf24;
+margin-bottom:20px;
+}
+
+.author-card h3{
+color:#1e293b;
+margin-bottom:10px;
+}
+
+.author-card p{
+color:#666;
+margin-bottom:20px;
+line-height:25px;
+}
+
+.author-card button{
+padding:12px 25px;
+background:#1e293b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+.author-card button:hover{
+background:#fbbf24;
+color:#000;
+}
+.review-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.review-header h1{
+font-size:45px;
+color:#1e293b;
+}
+
+.review-header p{
+font-size:18px;
+color:#666;
+margin-top:10px;
+}
+
+.review-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.review-card{
+background:#fff;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+transition:.3s;
+}
+
+.review-card:hover{
+transform:translateY(-8px);
+}
+
+.review-card img{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #fbbf24;
+margin-bottom:15px;
+}
+
+.review-card h3{
+color:#1e293b;
+margin-bottom:8px;
+}
+
+.stars{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.review-card p{
+color:#666;
+line-height:28px;
+}
+
+.add-review input,
+.add-review textarea{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:15px;
+}
+
+.add-review textarea{
+height:120px;
+resize:none;
+}
+
+.add-review button{
+margin-top:20px;
+padding:12px 25px;
+background:#1e293b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+.add-review button:hover{
+background:#fbbf24;
+color:black;
+}
+/* Wishlist */
+
+.wishlist-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.wishlist-header h1{
+font-size:45px;
+color:#1e293b;
+}
+
+.wishlist-header p{
+margin-top:10px;
+font-size:18px;
+color:#666;
+}
+
+.wishlist-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.wishlist-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+text-align:center;
+transition:.4s;
+}
+
+.wishlist-card:hover{
+transform:translateY(-10px);
+}
+
+.wishlist-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.wishlist-card h3{
+margin-top:15px;
+color:#1e293b;
+}
+
+.wishlist-card p{
+margin:10px 0;
+color:#666;
+}
+
+.read-btn{
+margin-top:15px;
+padding:10px 20px;
+background:#1e293b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+margin-right:10px;
+}
+
+.read-btn:hover{
+background:#fbbf24;
+color:#000;
+}
+
+.remove-btn{
+padding:10px 20px;
+background:#ef4444;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.remove-btn:hover{
+background:#dc2626;
+}
+/* Contact Page */
+
+.contact-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.contact-header h1{
+    font-size:45px;
+    color:#1e293b;
+}
+
+.contact-header p{
+    font-size:18px;
+    color:#666;
+    margin-top:10px;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-info{
+    background:linear-gradient(135deg,#1e3a8a,#0f172a);
+    color:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.contact-info h2{
+    color:#fbbf24;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+.contact-info p{
+    background:rgba(255,255,255,.12);
+    padding:18px;
+    margin:18px 0;
+    border-left:5px solid #fbbf24;
+    border-radius:12px;
+    line-height:28px;
+    transition:.3s;
+}
+
+.contact-info p:hover{
+    background:rgba(255,255,255,.2);
+    transform:translateX(8px);
+}
+
+.contact-info strong{
+    color:#fbbf24;
+    font-size:18px;
+}
+
+.contact-form{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.contact-form h2{
+    color:#1e293b;
+    margin-bottom:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    transition:.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#fbbf24;
+    outline:none;
+    box-shadow:0 0 8px rgba(251,191,36,.5);
+}
+
+.contact-form textarea{
+    height:150px;
+    resize:none;
+}
+
+.contact-form button{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    background:#1e293b;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.contact-form button:hover{
+    background:#fbbf24;
+    color:#000;
+}
+
+@media(max-width:768px){
+    .contact-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
+
 <body>
-    
+
+<nav>
+
+<div class="logo">
+    📚 <span>BookNest</span>
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('home')">Home</button>
+
+<button onclick="showPage('books')">Books</button>
+
+<button onclick="showPage('categories')">Categories</button>
+
+<button onclick="showPage('authors')">Authors</button>
+
+<button onclick="showPage('reviews')">Reviews</button>
+
+<button onclick="showPage('wishlist')">Wishlist ❤️</button>
+
+<button onclick="showPage('contact')">Contact</button>
+
+</div>
+
+</nav>
+
+<!-- HOME PAGE -->
+
+<div id="home" class="page">
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-text">
+
+<h1><span>Discover Your Next Favorite Book</span></h1>
+
+<p>
+Welcome to <b>BookNest</b>, your digital library where knowledge meets imagination.
+Browse thousands of bestselling books, discover famous authors, and explore every genre in one place.
+</p>
+
+<div class="hero-buttons">
+
+<button onclick="showPage('books')">
+Explore Books
+</button>
+
+<button class="secondary-btn">
+Learn More
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=700"
+alt="Books">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services">
+
+<div class="service-card">
+<h2>📚 10,000+</h2>
+<p>Books Collection</p>
+</div>
+
+<div class="service-card">
+<h2>👨‍💼 500+</h2>
+<p>Popular Authors</p>
+</div>
+
+<div class="service-card">
+<h2>⭐ 50K+</h2>
+<p>Happy Readers</p>
+</div>
+
+<div class="service-card">
+<h2>🏆 #1</h2>
+<p>Book Community</p>
+</div>
+
+</section>
+
+</div>
+
+<div id="books" class="page">
+
+<div class="book-header">
+    <h1>📚 Explore Our Books</h1>
+    <p>Find your favorite books from our collection</p>
+
+    <input type="text" id="searchBook"
+           placeholder="Search Books..."
+           onkeyup="searchBooks()">
+</div>
+
+<div class="book-container" id="bookContainer">
+
+<div class="book-card">
+
+<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500">
+
+<h3>Atomic Habits</h3>
+
+<p>James Clear</p>
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+<button onclick="viewBook('Atomic Habits')">
+View Details
+</button>
+
+</div>
+
+<div class="book-card">
+
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500">
+
+<h3>Rich Dad Poor Dad</h3>
+
+<p>Robert Kiyosaki</p>
+
+<div class="rating">
+⭐⭐⭐⭐☆
+</div>
+
+<button onclick="viewBook('Rich Dad Poor Dad')">
+View Details
+</button>
+
+</div>
+
+<div class="book-card">
+
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500">
+
+<h3>The Alchemist</h3>
+
+<p>Paulo Coelho</p>
+
+<div class="rating">
+⭐⭐⭐⭐⭐
+</div>
+
+<button onclick="viewBook('The Alchemist')">
+View Details
+</button>
+
+</div>
+
+<div class="book-card">
+
+<img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?w=500">
+
+<h3>Ikigai</h3>
+
+<p>Hector Garcia</p>
+
+<div class="rating">
+⭐⭐⭐⭐☆
+</div>
+
+<button onclick="viewBook('Ikigai')">
+View Details
+</button>
+
+</div>
+<!-- Book 5 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=500">
+    <h3>The Power of Now</h3>
+    <p>Eckhart Tolle</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('The Power of Now')">View Details</button>
+</div>
+
+<!-- Book 6 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=500">
+    <h3>Think and Grow Rich</h3>
+    <p>Napoleon Hill</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('Think and Grow Rich')">View Details</button>
+</div>
+
+<!-- Book 7 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=500">
+    <h3>Deep Work</h3>
+    <p>Cal Newport</p>
+    <div class="rating">⭐⭐⭐⭐☆</div>
+    <button onclick="viewBook('Deep Work')">View Details</button>
+</div>
+
+<!-- Book 8 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1511108690759-009324a90311?w=500">
+    <h3>The 5 AM Club</h3>
+    <p>Robin Sharma</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('The 5 AM Club')">View Details</button>
+</div>
+
+<!-- Book 9 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500">
+    <h3>Can't Hurt Me</h3>
+    <p>David Goggins</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('Can't Hurt Me')">View Details</button>
+</div>
+
+<!-- Book 10 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500">
+    <h3>Do Epic Shit</h3>
+    <p>Ankur Warikoo</p>
+    <div class="rating">⭐⭐⭐⭐☆</div>
+    <button onclick="viewBook('Do Epic Shit')">View Details</button>
+</div>
+
+<!-- Book 11 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500">
+    <h3>Zero to One</h3>
+    <p>Peter Thiel</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('Zero to One')">View Details</button>
+</div>
+
+<!-- Book 12 -->
+<div class="book-card">
+    <img src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?w=500">
+    <h3>Think Like a Monk</h3>
+    <p>Jay Shetty</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <button onclick="viewBook('Think Like a Monk')">View Details</button>
+</div>
+
+</div>
+</div>
+<!-- CATEGORIES PAGE -->
+
+<div id="categories" class="page">
+
+<div class="category-header">
+    <h1>📚 Book Categories</h1>
+    <p>Explore books by your favorite category</p>
+</div>
+
+<div class="category-grid">
+
+<div class="category-card" onclick="showCategory('Self Help')">
+    <div class="icon">📖</div>
+    <h3>Self Help</h3>
+    <p>120 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Fiction')">
+    <div class="icon">📚</div>
+    <h3>Fiction</h3>
+    <p>95 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Technology')">
+    <div class="icon">💻</div>
+    <h3>Technology</h3>
+    <p>80 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Biography')">
+    <div class="icon">👤</div>
+    <h3>Biography</h3>
+    <p>70 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Business')">
+    <div class="icon">💼</div>
+    <h3>Business</h3>
+    <p>60 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Science')">
+    <div class="icon">🔬</div>
+    <h3>Science</h3>
+    <p>55 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('History')">
+    <div class="icon">🏛️</div>
+    <h3>History</h3>
+    <p>45 Books Available</p>
+</div>
+
+<div class="category-card" onclick="showCategory('Children')">
+    <div class="icon">🧸</div>
+    <h3>Children</h3>
+    <p>40 Books Available</p>
+</div>
+
+</div>
+
+</div>
+<!-- AUTHORS PAGE -->
+
+<div id="authors" class="page">
+
+<div class="author-header">
+    <h1>👨‍💼 Popular Authors</h1>
+    <p>Meet the world's most inspiring writers</p>
+</div>
+
+<div class="author-grid">
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+    <h3>James Clear</h3>
+    <p>Author of <b>Atomic Habits</b></p>
+    <button onclick="authorInfo('James Clear')">View Profile</button>
+</div>
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+    <h3>Robert Kiyosaki</h3>
+    <p>Author of <b>Rich Dad Poor Dad</b></p>
+    <button onclick="authorInfo('Robert Kiyosaki')">View Profile</button>
+</div>
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/men/50.jpg" alt="">
+    <h3>Paulo Coelho</h3>
+    <p>Author of <b>The Alchemist</b></p>
+    <button onclick="authorInfo('Paulo Coelho')">View Profile</button>
+</div>
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+    <h3>Robin Sharma</h3>
+    <p>Author of <b>The 5 AM Club</b></p>
+    <button onclick="authorInfo('Robin Sharma')">View Profile</button>
+</div>
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/men/70.jpg" alt="">
+    <h3>Jay Shetty</h3>
+    <p>Author of <b>Think Like a Monk</b></p>
+    <button onclick="authorInfo('Jay Shetty')">View Profile</button>
+</div>
+
+<div class="author-card">
+    <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="">
+    <h3>Napoleon Hill</h3>
+    <p>Author of <b>Think and Grow Rich</b></p>
+    <button onclick="authorInfo('Napoleon Hill')">View Profile</button>
+</div>
+
+</div>
+
+</div>
+<!-- REVIEWS PAGE -->
+
+<div id="reviews" class="page">
+
+<div class="review-header">
+    <h1>⭐ Reader Reviews</h1>
+    <p>See what our readers say about BookNest</p>
+</div>
+
+<div class="review-grid">
+
+<div class="review-card">
+    <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
+    <h3>Emma Watson</h3>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>
+        "BookNest has an amazing collection of books.
+        The website is simple, fast, and easy to use."
+    </p>
+</div>
+
+<div class="review-card">
+    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="">
+    <h3>David Miller</h3>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>
+        "I found my favorite self-help books here.
+        Highly recommended for every reader."
+    </p>
+</div>
+
+<div class="review-card">
+    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="">
+    <h3>Sophia Johnson</h3>
+    <div class="stars">⭐⭐⭐⭐☆</div>
+    <p>
+        "Excellent categories and beautiful interface.
+        Searching books is very easy."
+    </p>
+</div>
+
+<div class="review-card">
+    <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="">
+    <h3>Michael Brown</h3>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>
+        "Professional design and wonderful reading
+        experience. I really enjoyed using BookNest."
+    </p>
+</div>
+
+<div class="review-card">
+    <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="">
+    <h3>Olivia Davis</h3>
+    <div class="stars">⭐⭐⭐⭐⭐</div>
+    <p>
+        "The book recommendations are excellent.
+        My reading journey became much better."
+    </p>
+</div>
+
+<div class="review-card add-review">
+
+<h2>Write a Review</h2>
+
+<input type="text" id="reviewName" placeholder="Your Name">
+
+<textarea id="reviewText"
+placeholder="Write your review..."></textarea>
+
+<button onclick="submitReview()">
+Submit Review
+</button>
+
+</div>
+
+</div>
+
+</div>
+<!-- WISHLIST PAGE -->
+
+<div id="wishlist" class="page">
+
+<div class="wishlist-header">
+    <h1>❤️ My Wishlist</h1>
+    <p>Save your favorite books and read them later.</p>
+</div>
+
+<div class="wishlist-grid">
+
+<div class="wishlist-card">
+    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500">
+    <h3>Atomic Habits</h3>
+    <p>James Clear</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <button class="read-btn"
+    onclick="readBook('Atomic Habits')">
+        Read Now
+    </button>
+
+    <button class="remove-btn"
+    onclick="removeWishlist(this)">
+        Remove
+    </button>
+</div>
+
+<div class="wishlist-card">
+    <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=500">
+    <h3>Think and Grow Rich</h3>
+    <p>Napoleon Hill</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <button class="read-btn"
+    onclick="readBook('Think and Grow Rich')">
+        Read Now
+    </button>
+
+    <button class="remove-btn"
+    onclick="removeWishlist(this)">
+        Remove
+    </button>
+</div>
+
+<div class="wishlist-card">
+    <img src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?w=500">
+    <h3>Think Like a Monk</h3>
+    <p>Jay Shetty</p>
+    <div class="rating">⭐⭐⭐⭐⭐</div>
+
+    <button class="read-btn"
+    onclick="readBook('Think Like a Monk')">
+        Read Now
+    </button>
+
+    <button class="remove-btn"
+    onclick="removeWishlist(this)">
+        Remove
+    </button>
+</div>
+
+<div class="wishlist-card">
+    <img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?w=500">
+    <h3>Ikigai</h3>
+    <p>Hector Garcia</p>
+    <div class="rating">⭐⭐⭐⭐☆</div>
+
+    <button class="read-btn"
+    onclick="readBook('Ikigai')">
+        Read Now
+    </button>
+
+    <button class="remove-btn"
+    onclick="removeWishlist(this)">
+        Remove
+    </button>
+</div>
+
+</div>
+
+</div>
+<!-- CONTACT PAGE -->
+
+<div id="contact" class="page">
+
+<div class="contact-header">
+    <h1>📞 Contact BookNest</h1>
+    <p>We're always here to help you discover your next favorite book.</p>
+</div>
+
+<div class="contact-container">
+
+    <!-- Left Side -->
+    <div class="contact-info">
+
+        <h2>📚 BookNest Library</h2>
+
+        <div class="info-box">
+            <span>📍</span>
+            <div>
+                <h4>Address</h4>
+                <p>No.123, Anna Salai,<br>
+                T Nagar,<br>
+                Chennai - 600018,<br>
+                Tamil Nadu, India</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>📞</span>
+            <div>
+                <h4>Phone</h4>
+                <p>+91 98765 43210</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>📧</span>
+            <div>
+                <h4>Email</h4>
+                <p>booknest@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>🌐</span>
+            <div>
+                <h4>Website</h4>
+                <p>www.booknest.com</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>🕒</span>
+            <div>
+                <h4>Working Hours</h4>
+                <p>Monday - Saturday<br>9:00 AM - 7:00 PM</p>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">📘</a>
+            <a href="#">📷</a>
+            <a href="#">🐦</a>
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="contact-form">
+
+        <h2>Send us a Message</h2>
+
+        <input type="text" id="cname" placeholder="Your Name">
+
+        <input type="email" id="cemail" placeholder="Your Email">
+
+        <input type="text" id="csubject" placeholder="Subject">
+
+        <textarea id="cmessage" placeholder="Write your message..."></textarea>
+
+        <button onclick="sendMessage()">Send Message</button>
+
+    </div>
+
+</div>
+</div>
+<script>
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(function(p){
+
+p.style.display="none";
+
+});
+
+document.getElementById(page).style.display="block";
+
+}
+function viewBook(book){
+
+alert("Opening : " + book);
+
+}
+
+function searchBooks(){
+
+let input=document.getElementById("searchBook").value.toUpperCase();
+
+let cards=document.querySelectorAll(".book-card");
+
+cards.forEach(function(card){
+
+let title=card.querySelector("h3").innerText.toUpperCase();
+
+if(title.indexOf(input)>-1){
+
+card.style.display="block";
+
+}
+else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+function showCategory(category){
+    alert("Showing books in " + category + " category");
+}
+function authorInfo(author){
+
+alert(
+"Author : " + author +
+"\n\nThank you for exploring BookNest!"
+);
+
+}
+function submitReview(){
+
+let name=document.getElementById("reviewName").value;
+let review=document.getElementById("reviewText").value;
+
+if(name==="" || review===""){
+alert("Please fill all fields.");
+return;
+}
+
+alert(
+"Thank you, " + name +
+"!\n\nYour review has been submitted successfully."
+);
+
+document.getElementById("reviewName").value="";
+document.getElementById("reviewText").value="";
+
+}
+function readBook(book){
+
+alert("Opening : " + book);
+
+}
+
+function removeWishlist(btn){
+
+if(confirm("Remove this book from Wishlist?")){
+
+btn.parentElement.remove();
+
+alert("Book removed successfully.");
+
+}
+
+}
+function sendMessage(){
+
+let name=document.getElementById("cname").value;
+let email=document.getElementById("cemail").value;
+let subject=document.getElementById("csubject").value;
+let message=document.getElementById("cmessage").value;
+
+if(name==="" || email==="" || subject==="" || message===""){
+alert("Please fill all fields.");
+return;
+}
+
+alert(
+"Thank You, " + name +
+"!\n\nYour message has been sent successfully."
+);
+
+document.getElementById("cname").value="";
+document.getElementById("cemail").value="";
+document.getElementById("csubject").value="";
+document.getElementById("cmessage").value="";
+}
+</script>
+
 </body>
 </html>
